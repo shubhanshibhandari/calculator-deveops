@@ -4,17 +4,16 @@ pipeline {
 
     environment {
         PASS = credentials('registry-pass')
+        IMAGE="spe-mini-project"
+        USER="shubhanshi"
+
     }
 
     stages {
 
         stage('Building jar') {
             steps {
-                sh '''
-                    ./jenkins/build/mvn.sh mvn -B -DskipTests clean package
-                    ./jenkins/build/build.sh
-
-                '''
+                sh './jenkins/build/mvn.sh mvn -B -DskipTests clean package'
             }
 
             post {
@@ -35,17 +34,27 @@ pipeline {
                 }
             }
         }
-
-        stage('Push') {
+        stage('building docker image') {
+                    steps {
+                        sh './jenkins/build/build.sh'
+                    }
+                }
+        stage('Pushing to docker hub && removing the local mage') {
             steps {
                 sh './jenkins/push/push.sh'
             }
         }
 
-        stage('Deploy') {
-            steps {
-                sh './jenkins/deploy/deploy.sh'
-            }
-        }
+        stage('Ansible Deploy') {
+                    steps {
+                        ansiblePlaybook becomeUser: 'null',
+                        extras:"-e "
+                        colorized: true,
+                        installation: 'Ansible',
+                        inventory: 'inventory',
+                        playbook: 'deploy-playbook.yml',
+                        sudoUser: 'null'
+                    }
+                }
     }
 }

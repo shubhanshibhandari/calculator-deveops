@@ -4,11 +4,12 @@ echo "********************"
 echo "** Pushing image ***"
 echo "********************"
 
-IMAGE="spe-mini-project"
+#IMAGE="spe-mini-project"
 
 echo "** Logging in ***"
-docker login -u shubhanshi -p $PASS
+echo $PASS | docker login -u $USER --password-stdin
 echo "*** Tagging image ***"
-docker tag $IMAGE:$BUILD_TAG shubhanshi/$IMAGE:$BUILD_TAG
+docker tag $IMAGE:$BUILD_TAG $USER/$IMAGE:$BUILD_NUMBER
 echo "*** Pushing image ***"
-docker push shubhanshi/$IMAGE:$BUILD_TAG
+docker push $USER/$IMAGE:$BUILD_NUMBER
+docker rmi  $USER/$IMAGE:$BUILD_NUMBER
