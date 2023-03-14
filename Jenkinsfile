@@ -48,7 +48,7 @@ pipeline {
         stage('Ansible Deploy') {
                     steps {
                         ansiblePlaybook becomeUser: 'null',
-                        extras:"-e "
+                        
                         colorized: true,
                         installation: 'Ansible',
                         inventory: 'inventory',
