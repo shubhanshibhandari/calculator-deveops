@@ -48,7 +48,7 @@ pipeline {
         stage('Ansible Deploy') {
                     steps {
                         ansiblePlaybook becomeUser: 'null',
-                        extras: "-e tag=$BUILD_NUMBER",
+                        extras: "-e tag=$BUILD_NUMBER -e user=$USER -e image=$IMAGE",
                         colorized: true,
                         installation: 'Ansible',
                         inventory: 'inventory',

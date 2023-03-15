@@ -10,13 +10,13 @@
         state: started
     - name: Pull Docker Image
       docker_image:
-        name: shubhanshi/spe-mini-project:{{tag}}
+        name: {{user}}/{{image}}:{{tag}}
         source: pull
 
     - name: Create & Start Calculator Docker Container
       docker_container:
         name: calculator-using-devops
-        image: shubhanshi/spe-mini-project:{{tag}}
+        image: {{user}}/{{image}}:{{tag}}
         state: started
         tty: yes
         interactive: yes
