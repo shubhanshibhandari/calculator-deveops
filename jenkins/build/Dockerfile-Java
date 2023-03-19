@@ -1,8 +1,8 @@
-FROM openjdk:8
+FROM openjdk:11.0.10-jre
 
 RUN mkdir /app
 
-COPY *.jar /app/app.jar
+COPY Calculator-Using-DevOps-1.0-SNAPSHOT-jar-with-dependencies.jar /app/app.jar
 
 CMD ["java", "-jar", "/app/app.jar"]
 

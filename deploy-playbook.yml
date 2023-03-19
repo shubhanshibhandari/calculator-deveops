@@ -20,4 +20,5 @@
         state: started
         tty: yes
         interactive: yes
-
+        volumes:
+          /logs:/logs
