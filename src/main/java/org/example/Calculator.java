@@ -13,56 +13,56 @@ public class Calculator {
 
     private static final Logger logger = LogManager.getLogger(Calculator.class);
     public static double sum(double a, double b) {
-        logger.info("[SUM] - " + a + " + " +b);
-        logger.info("[RESULT - SUM] - " + (a+b));
+        logger.info("[SUM]" + a + "+" +b);
+        logger.info("[RESULT-SUM]" + (a+b));
         return (a+b);
     }
     public static double subtract(double a, double b) {
-        logger.info("[SUBTRACT] - " + a + " - " +b);
-        logger.info("[RESULT - SUBTRACT] - " + (a-b));
+        logger.info("[SUBTRACT]" + a + "-" +b);
+        logger.info("[RESULT-SUBTRACT]" + (a-b));
         return (a-b);
     }
     public static double multiply(double a, double b) {
-        logger.info("[MULTIPLY] - " + a + " * " +b);
-        logger.info("[RESULT - MULTIPLY] - " + (a*b));
+        logger.info("[MULTIPLY]" + a + " * " +b);
+        logger.info("[RESULT-MULTIPLY]" + (a*b));
         if (b == 0)  return 0;
         return (a*b);
     }
     public static double divide(double a, double b) {
-        logger.info("[DIVIDE] - " + a + " / " +b);
-        logger.info("[RESULT - DIVIDE] - " + (a/b));
+        logger.info("[DIVIDE]" + a + "/" +b);
+        logger.info("[RESULT-DIVIDE]" + (a/b));
         if (b == 0) throw new ArithmeticException();
         return (a/b);
     }
     public static int factorial(int number1) {
-        logger.info("[FACTORIAL] - " + number1);
+        logger.info("[FACTORIAL]" + number1);
 
         int result = 1;
         for(int i = 1; i <= number1; i++)
             result *= i;
 
-        logger.info("[RESULT - FACTORIAL] - " + result);
+        logger.info("[RESULT-FACTORIAL]" + result);
         return result;
     }
 
     public static double squareRoot(double number1) {
-        logger.info("[SQ ROOT] - " + number1);
+        logger.info("[SQ_ROOT]" + number1);
         double result = Math.sqrt(number1);
-        logger.info("[RESULT - SQ ROOT] - " + result);
+        logger.info("[RESULT-SQ ROOT]" + result);
         return result;
     }
 
     public static double power(double number1, double number2) {
-        logger.info("[POWER - " + number1 + " ^ " + number2);
+        logger.info("[POWER]" + number1 + "^" + number2);
         double result = Math.pow(number1,number2);
-        logger.info("[RESULT - POWER] - " + result);
+        logger.info("[RESULT-POWER]" + result);
         return result;
     }
 
     public static double naturalLog(double number1) {
-        logger.info("[NATURAL LOG] - " + number1);
+        logger.info("[NATURAL_LOG]" + number1);
         double result = Math.log(number1);
-        logger.info("[RESULT - NATURAL LOG] - " + result);
+        logger.info("[RESULT-NATURAL_LOG]" + result);
         return result;
     }
 
@@ -76,7 +76,8 @@ public class Calculator {
             return true;
         }
         catch (InputMismatchException e) {
-            logger.error("[EXCEPTION] - " +e.toString()+ "\n[STACKTRACE] - "+ Arrays.toString(e.getStackTrace()));
+            logger.error("[EXCEPTION]" +e.toString()+ "\n[STACKTRACE]1" +
+                    ""+ Arrays.toString(e.getStackTrace()));
             System.out.println("Please enter correct input");
             return false;
         }
