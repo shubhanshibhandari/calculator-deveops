@@ -4,7 +4,7 @@ echo "********************"
 echo "** Pushing image ***"
 echo "********************"
 
-#IMAGE="spe-mini-project"
+#IMAGE="spe-mini-project "
 
 echo "** Logging in ***"
 echo $PASS | docker login -u $USER --password-stdin
