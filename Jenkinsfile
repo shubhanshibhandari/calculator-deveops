@@ -6,7 +6,7 @@ pipeline {
         PASS = credentials('registry-pass')
         IMAGE="spe-mini-project"
         USER="shubhanshi"
-        PRE_BUILD=${BUILD_NUMBER - 1}
+        PRE_BUILD="${BUILD_NUMBER - 1}"
 
     }
 
